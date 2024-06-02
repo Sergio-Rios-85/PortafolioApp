@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar class="azul">
+    <ion-title>Crear Inspección</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="exit-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button> 
+        <ion-icon color="light" slot="icon-only" name="car-sport-outline"></ion-icon>        
+      </ion-button>      
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <ion-list>
+    <ion-item >
+      <ion-label position="stacked">Fecha de inspección</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMM YYYY" presentation="date" [(ngModel)]="FECHA"></ion-datetime>
+    </ion-item>    
+
+    <ion-item>
+      <ion-label position="stacked">Hora</ion-label>
+      <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" presentation="time" [(ngModel)]="HORA"></ion-datetime>
+    </ion-item>    
+
+    <ion-item>
+      <ion-label position="stacked">Patente</ion-label>
+      <ion-select [(ngModel)]="ID_VEHICULO">
+        <ion-select-option *ngFor="let patente of patentes" [value]="patente.ID_VEHICULO">{{ patente.PATENTE }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Transmision</ion-label>
+      <ion-select [(ngModel)]="ID_TRANSMISION">
+        <ion-select-option *ngFor="let transmision of transmisions" [value]="transmision.ID_TRANSMISION">{{ transmision.TRANSMISION }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Combustible</ion-label>
+      <ion-select [(ngModel)]="ID_COMBUSTIBLE">
+        <ion-select-option *ngFor="let combustible of combustibles" [value]="combustible.ID_COMBUSTIBLE">{{ combustible.COMBUSTIBLE }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Resultado</ion-label>
+      <ion-select [(ngModel)]="ID_RESULTADO_INSPECCION">
+        <ion-select-option *ngFor="let resultado of resultados" [value]="resultado.ID_RESULTADO_INSPECCION">{{ resultado.RESULTADO_INSPECCION }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Pieza dañada</ion-label>
+      <ion-select [(ngModel)]="ID_PIEZA_ROTA">
+        <ion-select-option *ngFor="let pieza_rota of pieza_rotas" [value]="pieza_rota.ID_PIEZA_ROTA">{{ pieza_rota.PIEZA_ROTA }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Tipo de daño</ion-label>
+      <ion-select [(ngModel)]="ID_TIPO_DANIO">
+        <ion-select-option *ngFor="let tipo_danio of tipo_danios" [value]="tipo_danio.ID_TIPO_DANIO">{{ tipo_danio.TIPO_DANIO }}</ion-select-option>
+      </ion-select>
+    </ion-item>    
+
+    <ion-item>
+      <ion-label position="stacked">Gravedad de daño</ion-label>
+      <ion-select [(ngModel)]="ID_GRAVEDAD_DANIO">
+        <ion-select-option *ngFor="let gravedad_danio of gravedad_danios" [value]="gravedad_danio.ID_GRAVEDAD_DANIO">{{ gravedad_danio.GRAVEDAD_DANIO }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Observación</ion-label>
+      <ion-input type="text" [(ngModel)]="OBSERVACION"></ion-input>
+    </ion-item>
+    
+  </ion-list>
+
+  <ion-button expand="block" (click)="guardarInspeccion()">Guardar</ion-button>
+
+  
+</ion-content>

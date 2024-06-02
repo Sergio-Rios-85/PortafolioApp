@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar class="azul">
+    <ion-title>Registro</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="exit-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <h3 class="subtitulo encabezado">Ingresa tus datos</h3>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-card>
+         
+
+          <ion-card-content>
+            <ion-item>
+              <ion-label position="floating">RUT</ion-label>
+              <ion-input type="text" [(ngModel)]="RUT_CLIENTE"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Nombres</ion-label>
+              <ion-input type="text" [(ngModel)]="NOMBRES_CLIENTE"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Apellido Paterno</ion-label>
+              <ion-input type="text" [(ngModel)]="AP_PATERNO_CLIENTE"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Apellido Materno</ion-label>
+              <ion-input type="text" [(ngModel)]="AP_MATERNO_CLIENTE"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Teléfono Fijo</ion-label>
+              <ion-input type="tel" [(ngModel)]="TELEFONO_FIJO"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Celular</ion-label>
+              <ion-input type="tel" [(ngModel)]="CELULAR_CLIENTE"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Correo Electrónico</ion-label>
+              <ion-input type="email" [(ngModel)]="CORREO_CLIENTE"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Dirección</ion-label>
+              <ion-input type="text" [(ngModel)]="DIRECCION_CLIENTE"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Contraseña</ion-label>
+              <ion-input type="password" [(ngModel)]="CONTRASENA"></ion-input>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button expand="full" (click)="registro()">Registrarse</ion-button>
+
+  
+</ion-content>

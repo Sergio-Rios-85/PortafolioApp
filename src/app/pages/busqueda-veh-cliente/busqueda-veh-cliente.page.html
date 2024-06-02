@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar class="azul">
+    <ion-title>Bienvenido a Certitech</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="exit-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <h3 class="subtitulo encabezado">Información del vehículo</h3>
+  <ion-item>
+    <ion-label position="floating">Buscar por Patente</ion-label>
+    <ion-input [(ngModel)]="PATENTE"></ion-input>
+  </ion-item>
+  
+  <ion-button expand="full" (click)="buscarVehiculos()">Buscar</ion-button>
+  
+  <ion-list>      
+    <ion-item *ngFor="let vehiculo of vehiculos">      
+      <ion-list>        
+        <ion-item>
+          Patente: {{ vehiculo.PATENTE }}
+        </ion-item>
+        <ion-item>
+          Motor: {{vehiculo.MOTOR}}
+        </ion-item>
+        <ion-item>
+          Chasis: {{vehiculo.CHASIS}}
+        </ion-item>
+        <ion-item>
+          Kilometraje: {{vehiculo.KILOMETRAJE}}
+        </ion-item>
+        <ion-item>
+          Marca: {{vehiculo.VEH_MARCA}}
+        </ion-item>
+        <ion-item>
+          Modelo: {{vehiculo.VEH_MODELO}}
+        </ion-item>
+        <ion-item>
+          Color: {{vehiculo.VEH_COLOR}}
+        </ion-item>
+        <ion-item>
+          Año: {{vehiculo.VEH_ANIO}}
+        </ion-item>
+      </ion-list>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="azul">
+    <ion-title>Usuario</ion-title>
+    <ion-buttons slot="start">
+      <ion-button> 
+        <ion-icon color="light" slot="icon-only" name="build-outline"></ion-icon>        
+      </ion-button>      
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="exit-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding background">
+  <ion-img class="foto" src="assets/images/mecanico.png"></ion-img>
+
+  <div>
+
+    <h3 class="subtitulo encabezado">Ingresa tus datos</h3>
+
+      <ion-item>
+        <ion-label class="normal" position="floating">
+          Usuario:
+        </ion-label>
+        <ion-input class="normal" type="text" inputmode="text" [(ngModel)]="usuario"></ion-input>
+      </ion-item>   
+
+      <ion-item>
+        <ion-label class="normal" position="floating">
+          Contraseña:
+        </ion-label>
+        <ion-input type="password" [(ngModel)]="contrasena"></ion-input>
+      </ion-item> 
+
+        <div class="nuevo">   
+          <ion-button class="normal" color="primary" expand="block" (click)="login()">Login</ion-button>           
+        </div>
+
+
+  </div>  
+
+  
+</ion-content>

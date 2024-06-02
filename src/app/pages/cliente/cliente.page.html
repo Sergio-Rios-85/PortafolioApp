@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="azul">
+    <ion-title>Clientes</ion-title>
+    <ion-buttons slot="start">
+      <ion-button> 
+        <ion-icon color="light" slot="icon-only" name="person-circle-outline"></ion-icon>        
+      </ion-button>      
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="exit-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding background">
+  <ion-img class="foto" src="assets/images/usuario.jpg"></ion-img>
+  <ion-button routerLink="/login-cliente" class="ion-margin-top azul" expand="block">Iniciar sesión</ion-button>
+  <ion-button routerLink="/registro" class="ion-margin-top azul" expand="block">Registrarse</ion-button>
+</ion-content>

@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar class="azul">
+    <ion-title>Crear Documento OI</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="exit-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon color="light" slot="icon-only" name="car-sport-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <ion-item>
+    <ion-label position="stacked"></ion-label>
+    <ion-input [(ngModel)]="searchPatente" placeholder="Ingrese la patente"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="buscarInspecciones()">Buscar</ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let inspeccion of inspecciones" (click)="onInspeccionClick(inspeccion)" [ngClass]="{'selected': inspeccion === inspeccionSeleccionada}">
+      <ion-label>
+        <h2>OI: {{ inspeccion.ID_OI }}</h2>
+        <p>Fecha: {{ inspeccion.FECHA.split('T')[0] }}</p>
+        <p>Hora: {{ inspeccion.HORA }}</p>
+        <p>Patente: {{ inspeccion.INSP_PATENTE }}</p>
+        <p>Resultado: {{ inspeccion.INSP_RESULTADO_INSPECCION }}</p>
+        <p>Transmision: {{ inspeccion.INSP_TRANSMISION }}</p>
+        <p>Combustible: {{ inspeccion.INSP_COMBUSTIBLE }}</p>
+        <p>Pieza dañada: {{ inspeccion.INSP_PIEZA_ROTA }}</p>
+        <p>Tipo de daño: {{ inspeccion.INSP_TIPO_DANIO }}</p>
+        <p>Gravedad del daño: {{ inspeccion.INSP_GRAVEDAD_DANIO }}</p>
+        <p>Observacion: {{ inspeccion.OBSERVACION }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-label></ion-label>
+    <input type="file" (change)="onFileSelected($event)">
+  </ion-item>
+
+  <ion-img [src]="selectedImage" *ngIf="selectedImage"></ion-img>
+
+  <ion-button expand="block" (click)="generarPDF()">Generar PDF</ion-button>
+</ion-content>

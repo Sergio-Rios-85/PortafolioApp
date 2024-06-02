@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar class="azul">
+    <ion-title>Vehículos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="exit-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Patente</ion-label>
+      <ion-input type="text" [(ngModel)]="PATENTE"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Motor</ion-label>
+      <ion-input type="text" [(ngModel)]="MOTOR"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Chasis</ion-label>
+      <ion-input type="text" [(ngModel)]="CHASIS"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Kilometraje</ion-label>
+      <ion-input type="number" [(ngModel)]="KILOMETRAJE"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Marca</ion-label>
+      <ion-select [(ngModel)]="ID_MARCA">
+        <ion-select-option *ngFor="let marca of marcas" [value]="marca.ID_MARCA">{{ marca.MARCA }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Modelo</ion-label>
+      <ion-select [(ngModel)]="ID_MODELO">
+        <ion-select-option *ngFor="let modelo of modelos" [value]="modelo.ID_MODELO">{{ modelo.MODELO }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Color</ion-label>
+      <ion-select [(ngModel)]="ID_COLOR">
+        <ion-select-option *ngFor="let color of colores" [value]="color.ID_COLOR">{{ color.COLOR }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Año</ion-label>
+      <ion-select [(ngModel)]="ID_ANIO">
+        <ion-select-option *ngFor="let anio of anios" [value]="anio.ID_ANIO">{{ anio.ANIO }}</ion-select-option>
+      </ion-select>
+    </ion-item>    
+    
+  </ion-list>
+
+  <ion-button expand="block" (click)="guardarVehiculo()">Guardar</ion-button>
+  
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar class="azul">
+    <ion-title>Automotora Certitech</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="exit-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button> 
+        <ion-icon color="light" slot="icon-only" name="car-sport-outline"></ion-icon>        
+      </ion-button>      
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <ion-card>
+    <img src="assets/images/autoinscripcion.jpg" class="imagen-auto" />
+    <ion-card-header>      
+      <ion-card-title class="titulo-centrado tamano-letra">Ingresar automovil</ion-card-title>      
+      <ion-button routerLink="/vehiculo" fill="outline">Ingresar</ion-button>
+    </ion-card-header>  
+  </ion-card>
+
+  <ion-card >
+    <img src="assets/images/inscripcion.jpg" class="imagen-auto" />
+    <ion-card-header>      
+      <ion-card-title class="titulo-centrado tamano-letra">Ingresar inspección</ion-card-title>      
+      <ion-button routerLink="/inspeccion" fill="outline">Ingresar</ion-button>
+    </ion-card-header>  
+  </ion-card>
+</ion-content>

@@ -1,0 +1,23 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+import { IonicModule } from '@ionic/angular';
+
+import { PageClientePageRoutingModule } from './page-cliente-routing.module';
+
+import { PageClientePage } from './page-cliente.page';
+
+
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    PageClientePageRoutingModule,
+    
+  ],
+  declarations: [PageClientePage]
+})
+export class PageClientePageModule {}

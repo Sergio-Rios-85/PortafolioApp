@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar class="azul">
+    <ion-title>Inspección</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="exit-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button> 
+        <ion-icon color="light" slot="icon-only" name="car-sport-outline"></ion-icon>        
+      </ion-button>      
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <ion-card>
+    <img src="assets/images/io.jpg" class="imagen-auto" />
+    <ion-card-header>      
+      <ion-card-title class="titulo-centrado tamano-letra">Nueva Inspección</ion-card-title>      
+      <ion-button routerLink="/inspeccion/oi" fill="outline">Ingresar</ion-button>
+    </ion-card-header>  
+  </ion-card>
+
+  <ion-card >
+    <img src="assets/images/informe.jpg" class="imagen-auto" />
+    <ion-card-header>      
+      <ion-card-title class="titulo-centrado tamano-letra">Certificado</ion-card-title>      
+      <ion-button routerLink="/inspeccion/documento" fill="outline">Ingresar</ion-button>
+    </ion-card-header>  
+  </ion-card>
+</ion-content>

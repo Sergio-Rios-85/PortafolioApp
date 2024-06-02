@@ -1,0 +1,53 @@
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+@import "@ionic/angular/css/palettes/dark.system.css";
+
+.titulo {
+    font-family: 'Raleway', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color:rgb(33, 181, 132)
+}
+
+.subtitulo {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    color:rgb(240, 243, 240)
+}
+
+.normal {
+    font-family: 'Raleway', sans-serif !important;
+    font-size: 14px !important;
+    color:black !important;
+}
+
+.encabezado{
+    background: #0b4885;
+    border-radius: 40px;
+    margin: 20px;
+    text-align: center;
+    padding: 10px;
+}
+
+.azul{
+    --background: #2c5dc4;
+    --color: #f3ecec;
+}
+
+
+ion-content.background{
+    --ion-background-color: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+  
