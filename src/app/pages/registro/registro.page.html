@@ -1,9 +1,14 @@
 <ion-header>
   <ion-toolbar class="azul">
     <ion-title>Registro</ion-title>
+    <ion-buttons slot="start">
+      <ion-button> 
+        <ion-icon color="light" slot="icon-only" name="car-sport-outline"></ion-icon>        
+      </ion-button>      
+    </ion-buttons>
     <ion-buttons slot="end">
       <ion-button (click)="logout()">
-        <ion-icon name="exit-outline"></ion-icon>
+        <ion-icon color="light" name="exit-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -15,8 +20,7 @@
   <ion-grid>
     <ion-row>
       <ion-col size-md="6" offset-md="3">
-        <ion-card>
-         
+        <ion-card>   
 
           <ion-card-content>
             <ion-item>
@@ -45,7 +49,7 @@
             </ion-item>
 
             <ion-item>
-              <ion-label position="floating">Celular</ion-label>
+              <ion-label position="floating">Celular +569</ion-label>
               <ion-input type="tel" [(ngModel)]="CELULAR_CLIENTE"></ion-input>
             </ion-item>
 
@@ -63,6 +67,7 @@
               <ion-label position="floating">Contraseña</ion-label>
               <ion-input type="password" [(ngModel)]="CONTRASENA"></ion-input>
             </ion-item>
+
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -70,6 +75,8 @@
   </ion-grid>
 
   <ion-button expand="full" (click)="registro()">Registrarse</ion-button>
+
+  
 
   
 </ion-content>

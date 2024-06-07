@@ -38,6 +38,6 @@ export class BusquedaVehClientePage implements OnInit {
   }
 
   logout() {
-    this.router.navigate(['/login-cliente']);
+    this.router.navigate(['/page-cliente']);
   }
 }

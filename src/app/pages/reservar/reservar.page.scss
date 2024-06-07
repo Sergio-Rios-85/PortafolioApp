@@ -1,0 +1,47 @@
+ion-content.background {
+    --ion-background-color: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  }
+  
+  .calendar-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  ion-datetime {
+    width: 100%;
+    max-width: 400px;
+    --background: transparent;
+    --ion-background-color: transparent;
+    color: black; /* Ajusta el color del texto */
+  }
+  
+  ion-datetime::part(calendar) {
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    border-radius: 8px; /* Opcional, para redondear los bordes */
+  }
+  
+  ion-datetime::part(day),
+  ion-datetime::part(month-year),
+  ion-datetime::part(weekday),
+  ion-datetime::part(button) {
+    color: black; /* Ajusta el color del texto */
+  }
+  
+  .button-booked {
+    background-color: yellow !important;
+    color: black !important;
+  }
+  
+  .button-available {
+    background-color: transparent !important; /* Hacer el botón transparente */
+    color: white !important;
+    border: 2px solid white !important; /* Añadir borde para visibilidad */
+  }
+  
+  .button-selected {
+    background-color: green !important; /* Fondo verde cuando está seleccionado */
+    color: white !important;
+    border: 2px solid green !important; /* Borde verde cuando está seleccionado */
+  }
+  

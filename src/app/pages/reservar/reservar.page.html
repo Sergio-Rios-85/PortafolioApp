@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar class="azul">
+    <ion-title>Reserva de Horas de Revisión Técnica</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon color="light" name="exit-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <h3 class="subtitulo encabezado">Por favor seleccione la planta</h3>
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Región</ion-label>
+      <ion-select [(ngModel)]="selectedRegion" (ionChange)="loadSucursales()">
+        <ion-select-option *ngFor="let region of regiones" [value]="region.ID_REGION">{{ region.REGION }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Sucursal</ion-label>
+      <ion-select [(ngModel)]="selectedSucursal">
+        <ion-select-option *ngFor="let sucursal of sucursales" [value]="sucursal.ID_SUCURSAL">{{ sucursal.SUCURSAL }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <h3 class="subtitulo encabezado">Fechas disponibles</h3>
+  <ion-datetime [(ngModel)]="selectedDate" display-format="DD/MM/YYYY" (ionChange)="loadAvailableTimes()"></ion-datetime>
+
+  <h3 class="subtitulo encabezado">Horarios disponibles para el día {{ selectedDate | date: 'dd-MM-yyyy' }}:</h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3" *ngFor="let time of availableTimes">
+        <ion-button 
+          [class.button-booked]="time.BOOKED" 
+          [class.button-available]="!time.BOOKED" 
+          [class.button-selected]="selectedTimeSlot && selectedTimeSlot.HORA === time.HORA" 
+          [disabled]="time.BOOKED" 
+          (click)="selectTime(time)">
+          {{ time.HORA }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <h3 class="subtitulo encabezado">Ingresar datos del vehículo</h3>
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Patente</ion-label>
+      <ion-select [(ngModel)]="ID_VEHICULO">
+        <ion-select-option *ngFor="let patente of patentes" [value]="patente.ID_VEHICULO">{{ patente.PATENTE }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Marca</ion-label>
+      <ion-select [(ngModel)]="ID_MARCA">
+        <ion-select-option *ngFor="let marca of marcas" [value]="marca.ID_MARCA">{{ marca.MARCA }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Modelo</ion-label>
+      <ion-select [(ngModel)]="ID_MODELO">
+        <ion-select-option *ngFor="let modelo of modelos" [value]="modelo.ID_MODELO">{{ modelo.MODELO }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Año</ion-label>
+      <ion-select [(ngModel)]="ID_ANIO">
+        <ion-select-option *ngFor="let anio of anios" [value]="anio.ID_ANIO">{{ anio.ANIO }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" (click)="reservar()">Reservar</ion-button>
+</ion-content>

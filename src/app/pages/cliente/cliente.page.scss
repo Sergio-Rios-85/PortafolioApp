@@ -5,3 +5,15 @@
     border-radius: 20px;
     margin: auto;
 }
+
+.centrar-enlace {
+    display: block; /* Asegúrate de que el enlace sea un bloque para que margin auto funcione */
+    margin: 0 auto;
+    text-align: center; /* Esto centra el texto dentro del enlace */
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+

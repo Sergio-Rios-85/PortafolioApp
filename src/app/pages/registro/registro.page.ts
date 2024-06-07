@@ -25,6 +25,11 @@ export class RegistroPage implements OnInit {
   }
 
   registro() {
+    if (!this.validarDatos()) {
+      alert('Por favor, ingrese datos válidos.');
+      return;
+    }
+
     const data = {
       RUT_CLIENTE: this.RUT_CLIENTE,
       NOMBRES_CLIENTE: this.NOMBRES_CLIENTE,
@@ -49,6 +54,11 @@ export class RegistroPage implements OnInit {
         alert('Error en el servidor');
       }
     );
+  }
+
+  validarDatos(): boolean {
+    const regexNumeros = /^[0-9]+$/;
+    return regexNumeros.test(this.TELEFONO_FIJO) && regexNumeros.test(this.CELULAR_CLIENTE);
   }
 
   logout() {

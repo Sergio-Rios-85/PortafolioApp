@@ -1,15 +1,21 @@
 <ion-header>
   <ion-toolbar class="azul">
     <ion-title>Vehículos</ion-title>
+    <ion-buttons slot="start">
+      <ion-button> 
+        <ion-icon color="light" slot="icon-only" name="car-sport-outline"></ion-icon>        
+      </ion-button>      
+    </ion-buttons>
     <ion-buttons slot="end">
       <ion-button (click)="logout()">
-        <ion-icon name="exit-outline"></ion-icon>
+        <ion-icon color="light" name="exit-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="background">
+  <h3 class="subtitulo encabezado">Ingresar nuevo vehiculo</h3>
   <ion-list>
     <ion-item>
       <ion-label position="stacked">Patente</ion-label>

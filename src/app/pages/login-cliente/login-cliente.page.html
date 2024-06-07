@@ -1,9 +1,14 @@
 <ion-header>
   <ion-toolbar class="azul">
     <ion-title>Iniciar Sesión</ion-title>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon color="light" slot="icon-only" name="car-sport-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-buttons slot="end">
       <ion-button (click)="logout()">
-        <ion-icon name="exit-outline"></ion-icon>
+        <ion-icon color="light" name="exit-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -22,6 +27,6 @@
     </ion-item>
   
     <ion-button expand="full" (click)="login()">Iniciar Sesión</ion-button>
-  </ion-card>
+  </ion-card>  
   
 </ion-content>

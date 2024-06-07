@@ -47,6 +47,16 @@ const routes: Routes = [
     path: 'inspeccion',
     loadChildren: () => import('./pages/inspeccion/inspeccion.module').then( m => m.InspeccionPageModule)
   },
+  {
+    path: 'olvidar-contrasena',
+    loadChildren: () => import('./pages/olvidar-contrasena/olvidar-contrasena.module').then( m => m.OlvidarContrasenaPageModule)
+  },
+  {
+    path: 'reservar',
+    loadChildren: () => import('./pages/reservar/reservar.module').then( m => m.ReservarPageModule)
+  },
+  
+  
 ];
 
 @NgModule({

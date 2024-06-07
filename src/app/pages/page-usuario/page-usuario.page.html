@@ -3,7 +3,7 @@
     <ion-title>Automotora Certitech</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="logout()">
-        <ion-icon name="exit-outline"></ion-icon>
+        <ion-icon color="light" name="exit-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-buttons slot="start">
@@ -26,8 +26,16 @@
   <ion-card >
     <img src="assets/images/inscripcion.jpg" class="imagen-auto" />
     <ion-card-header>      
-      <ion-card-title class="titulo-centrado tamano-letra">Ingresar inspección</ion-card-title>      
+      <ion-card-title class="titulo-centrado tamano-letra">Inspección y Certificados</ion-card-title>      
       <ion-button routerLink="/inspeccion" fill="outline">Ingresar</ion-button>
+    </ion-card-header>  
+  </ion-card>
+
+  <ion-card >
+    <img src="assets/images/hora.png" class="imagen-auto" />
+    <ion-card-header>      
+      <ion-card-title class="titulo-centrado tamano-letra">Reservar hora</ion-card-title>      
+      <ion-button routerLink="/reservar" fill="outline">Ingresar</ion-button>
     </ion-card-header>  
   </ion-card>
 </ion-content>

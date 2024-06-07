@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="azul">
+    <ion-title>Certitech</ion-title>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon color="light" slot="icon-only" name="person-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="exit-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background">
+  <h3 class="subtitulo encabezado">Restablecer contraseña</h3> 
+
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Correo Electrónico
+      </ion-label>
+      <ion-input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" required></ion-input>
+    </ion-item>   
+
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Nueva Contraseña:
+      </ion-label>
+      <ion-input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required></ion-input>
+    </ion-item> 
+
+    <ion-item>
+      <ion-label class="normal" position="floating">
+        Confirmar Nueva Contraseña:
+      </ion-label>
+      <ion-input type="password" class="form-control" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required></ion-input>
+    </ion-item>
+
+      <div class="nuevo">   
+        <ion-button expand="full" (click)="resetPassword()">Registrarse</ion-button>          
+      </div>
+  
+  
+</ion-content>
