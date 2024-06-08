@@ -33,7 +33,7 @@
   <ion-grid>
     <ion-row>
       <ion-col size="3" *ngFor="let time of availableTimes">
-        <ion-button 
+        <ion-button fill="outline" color="dark"
           [class.button-booked]="time.BOOKED" 
           [class.button-available]="!time.BOOKED" 
           [class.button-selected]="selectedTimeSlot && selectedTimeSlot.HORA === time.HORA" 
