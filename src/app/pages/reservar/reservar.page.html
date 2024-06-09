@@ -18,6 +18,7 @@
         <ion-select-option *ngFor="let region of regiones" [value]="region.ID_REGION">{{ region.REGION }}</ion-select-option>
       </ion-select>
     </ion-item>
+
     <ion-item>
       <ion-label position="stacked">Sucursal</ion-label>
       <ion-select [(ngModel)]="selectedSucursal">
@@ -46,32 +47,28 @@
   </ion-grid>
 
   <h3 class="subtitulo encabezado">Ingresar datos del vehículo</h3>
-  <ion-list>
-    <ion-item>
-      <ion-label position="stacked">Patente</ion-label>
-      <ion-select [(ngModel)]="ID_VEHICULO">
-        <ion-select-option *ngFor="let patente of patentes" [value]="patente.ID_VEHICULO">{{ patente.PATENTE }}</ion-select-option>
-      </ion-select>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Marca</ion-label>
-      <ion-select [(ngModel)]="ID_MARCA">
-        <ion-select-option *ngFor="let marca of marcas" [value]="marca.ID_MARCA">{{ marca.MARCA }}</ion-select-option>
-      </ion-select>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Modelo</ion-label>
-      <ion-select [(ngModel)]="ID_MODELO">
-        <ion-select-option *ngFor="let modelo of modelos" [value]="modelo.ID_MODELO">{{ modelo.MODELO }}</ion-select-option>
-      </ion-select>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">Año</ion-label>
-      <ion-select [(ngModel)]="ID_ANIO">
-        <ion-select-option *ngFor="let anio of anios" [value]="anio.ID_ANIO">{{ anio.ANIO }}</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
+
+  <ion-item>
+    <ion-label position="stacked">Patente</ion-label>
+    <ion-select [(ngModel)]="selectedPatente" (ionChange)="loadVehicleData()">
+      <ion-select-option *ngFor="let patente of patentes" [value]="patente.PATENTE">{{ patente.PATENTE }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label class="normal" position="floating">Marca</ion-label>
+    <ion-input type="text" id="marca" class="form-control" [(ngModel)]="selectedMarca" readonly></ion-input>
+  </ion-item> 
+
+  <ion-item>
+    <ion-label class="normal" position="floating">Modelo</ion-label>
+    <ion-input type="text" id="modelo" class="form-control" [(ngModel)]="selectedModelo" readonly></ion-input>
+  </ion-item>   
+
+  <ion-item>
+    <ion-label class="normal" position="floating">Año</ion-label>
+    <ion-input type="text" id="anio" class="form-control" [(ngModel)]="selectedAnio" readonly></ion-input>
+  </ion-item> 
 
   <ion-button expand="block" (click)="reservar()">Reservar</ion-button>
 </ion-content>
