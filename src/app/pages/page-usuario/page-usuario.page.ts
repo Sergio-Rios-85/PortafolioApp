@@ -15,7 +15,7 @@ export class PageUsuarioPage implements OnInit {
 
   logout() {
     localStorage.removeItem('clienteId');
-    this.router.navigate(['/home']);
+    this.router.navigate(['/principal']);
   }
 
 }

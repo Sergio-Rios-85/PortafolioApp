@@ -41,7 +41,7 @@ export class ClientePage implements OnInit {
   }
 
   logout() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/principal']);
   }
 
 }
