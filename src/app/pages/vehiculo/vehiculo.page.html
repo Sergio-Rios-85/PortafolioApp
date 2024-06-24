@@ -35,7 +35,7 @@
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Marca</ion-label>
-      <ion-select [(ngModel)]="ID_MARCA">
+      <ion-select [(ngModel)]="ID_MARCA" (ionChange)="onMarcaChange($event)">
         <ion-select-option *ngFor="let marca of marcas" [value]="marca.ID_MARCA">{{ marca.MARCA }}</ion-select-option>
       </ion-select>
     </ion-item>

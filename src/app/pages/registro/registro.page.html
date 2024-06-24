@@ -45,17 +45,26 @@
 
             <ion-item>
               <ion-label position="floating">Teléfono Fijo</ion-label>
-              <ion-input type="tel" [(ngModel)]="TELEFONO_FIJO"></ion-input>
+              <ion-input type="tel" [(ngModel)]="TELEFONO_FIJO" (ngModelChange)="validarTelefonoFijo()"></ion-input>
+              <ion-note *ngIf="telefonoFijoError" color="danger">
+                Por favor ingrese solo números en el teléfono fijo.
+              </ion-note>
             </ion-item>
 
             <ion-item>
               <ion-label position="floating">Celular +569</ion-label>
-              <ion-input type="tel" [(ngModel)]="CELULAR_CLIENTE"></ion-input>
+              <ion-input type="tel" [(ngModel)]="CELULAR_CLIENTE" (ngModelChange)="validarCelularCliente()"></ion-input>
+              <ion-note *ngIf="celularClienteError" color="danger">
+                Por favor ingrese solo números en el número de celular.
+              </ion-note>
             </ion-item>
 
             <ion-item>
               <ion-label position="floating">Correo Electrónico</ion-label>
               <ion-input type="email" [(ngModel)]="CORREO_CLIENTE"></ion-input>
+              <ion-note *ngIf="emailInvalid && CORREO_CLIENTE" color="danger">
+                Por favor ingrese un correo electrónico válido.
+              </ion-note>
             </ion-item>
 
             <ion-item>
@@ -74,9 +83,5 @@
     </ion-row>
   </ion-grid>
 
-  <ion-button expand="full" (click)="registro()">Registrarse</ion-button>
-
-  
-
-  
+  <ion-button expand="full" (click)="registro()">Registrarse</ion-button>  
 </ion-content>

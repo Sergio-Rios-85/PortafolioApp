@@ -22,7 +22,6 @@
   <br>
   <a [routerLink]="['/olvidar-contrasena']" class="btn btn-link centrar-enlace">¿Olvidaste tu contraseña?</a>
 
-
   <ion-card>
     <ion-card-header>
       <h3 class="subtitulo encabezado">Contáctenos</h3>
@@ -31,23 +30,21 @@
       <h1 color="light">Ingrese sus datos</h1>
       <ion-item>
         <ion-label position="floating">Nombre</ion-label>
-        <ion-input [(ngModel)]="contacto.nombre"></ion-input>
+        <ion-input [(ngModel)]="contacto.nombre" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Correo</ion-label>
-        <ion-input [(ngModel)]="contacto.correo"></ion-input>
+        <ion-input [(ngModel)]="contacto.correo" type="email" required></ion-input>
+        <div *ngIf="emailInvalid && contacto.correo">
+          <p color="danger">Por favor ingrese un correo electrónico válido.</p>
+        </div>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Mensaje</ion-label>
-        <ion-textarea [(ngModel)]="contacto.mensaje"></ion-textarea>
+        <ion-textarea [(ngModel)]="contacto.mensaje" required></ion-textarea>
       </ion-item>
       <ion-button expand="full" (click)="enviarContacto()">Enviar</ion-button>
     </ion-card-content>
   </ion-card>
-
-
-
-
-
+  
 </ion-content>
-

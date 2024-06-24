@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+import validator from 'validator';
 
 @Component({
   selector: 'app-registro',
@@ -18,17 +20,31 @@ export class RegistroPage implements OnInit {
   CORREO_CLIENTE!: string;
   DIRECCION_CLIENTE!: string;
   CONTRASENA!: string;
+  emailInvalid: boolean = false;
+  telefonoFijoError: boolean = false;
+  celularClienteError: boolean = false;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private alertController: AlertController) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  registro() {
+  async registro() {
     if (!this.validarDatos()) {
       alert('Por favor, ingrese datos válidos.');
       return;
     }
+
+    if (!this.validarCorreo(this.CORREO_CLIENTE)) {
+      this.emailInvalid = true;
+      const alert = await this.alertController.create({
+        header: 'Error',
+        message: 'Por favor ingrese un correo electrónico válido.',
+        buttons: ['OK']
+      });
+      await alert.present();
+      return;
+    }
+    this.emailInvalid = false;
 
     const data = {
       RUT_CLIENTE: this.RUT_CLIENTE,
@@ -56,9 +72,22 @@ export class RegistroPage implements OnInit {
     );
   }
 
+  validarCorreo(correo: string): boolean {
+    return validator.isEmail(correo);
+  }
+
   validarDatos(): boolean {
+    return !this.telefonoFijoError && !this.celularClienteError;
+  }
+
+  validarTelefonoFijo() {
     const regexNumeros = /^[0-9]+$/;
-    return regexNumeros.test(this.TELEFONO_FIJO) && regexNumeros.test(this.CELULAR_CLIENTE);
+    this.telefonoFijoError = !regexNumeros.test(this.TELEFONO_FIJO);
+  }
+
+  validarCelularCliente() {
+    const regexNumeros = /^[0-9]+$/;
+    this.celularClienteError = !regexNumeros.test(this.CELULAR_CLIENTE);
   }
 
   logout() {

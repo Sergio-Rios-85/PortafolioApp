@@ -34,16 +34,20 @@ export class VehiculoPage implements OnInit {
       this.marcas = data;
     });
 
-    this.http.get<any[]>('http://localhost:4000/modelos').subscribe(data => {
-      this.modelos = data;
-    });
-
+    // Inicialmente no cargamos todos los modelos, sino que se cargan según la marca seleccionada
     this.http.get<any[]>('http://localhost:4000/colores').subscribe(data => {
       this.colores = data;
     });
 
     this.http.get<any[]>('http://localhost:4000/anios').subscribe(data => {
       this.anios = data;
+    });
+  }
+
+  onMarcaChange(event: any) {
+    const idMarca = event.detail.value;
+    this.http.get<any[]>(`http://localhost:4000/modelos?idMarca=${idMarca}`).subscribe(data => {
+      this.modelos = data;
     });
   }
 
