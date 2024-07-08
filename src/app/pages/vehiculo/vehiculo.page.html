@@ -20,6 +20,7 @@
     <ion-item>
       <ion-label position="stacked">Patente</ion-label>
       <ion-input type="text" [(ngModel)]="PATENTE"></ion-input>
+      <ion-text color="danger" *ngIf="errorPatente">{{ errorMessage }}</ion-text>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">Motor</ion-label>
@@ -57,9 +58,7 @@
         <ion-select-option *ngFor="let anio of anios" [value]="anio.ID_ANIO">{{ anio.ANIO }}</ion-select-option>
       </ion-select>
     </ion-item>    
-    
   </ion-list>
 
   <ion-button expand="block" (click)="guardarVehiculo()">Guardar</ion-button>
-  
 </ion-content>

@@ -33,7 +33,7 @@ export class LoginClientePage implements OnInit {
       },
       (error) => {
         console.error('Error:', error);
-        alert('Error en el servidor');
+        alert('Credenciales incorrectas');
       }
     );
   }

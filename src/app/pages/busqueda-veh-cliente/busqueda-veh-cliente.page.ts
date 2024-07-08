@@ -13,21 +13,36 @@ export class BusquedaVehClientePage implements OnInit {
   MOTOR: string = '';
   CHASIS: string = '';
   vehiculos: any[] = [];
+  errorPatente: boolean = false;
+  errorMessage: string = 'Formato de patente incorrecto. Por favor, ingrese una patente válida.';
 
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
   }
 
+  validarPatente(patente: string): boolean {
+    const regex = /^[A-Z]{4}\d{2}$/;
+    return regex.test(patente);
+  }
+
   buscarVehiculos() {
+    if (!this.validarPatente(this.PATENTE)) {
+      this.errorPatente = true;
+      return;
+    }
+  
+    this.errorPatente = false;
+  
     const filtros = {
       PATENTE: this.PATENTE,
       MOTOR: this.MOTOR,
       CHASIS: this.CHASIS
     };
-
+  
     this.http.post<any[]>('http://localhost:4000/buscar-vehiculos', filtros).subscribe(
       data => {
+        console.log(data); // Verifica los datos recibidos
         this.vehiculos = data;
       },
       error => {
@@ -36,8 +51,10 @@ export class BusquedaVehClientePage implements OnInit {
       }
     );
   }
+  
 
   logout() {
     this.router.navigate(['/page-cliente']);
   }
 }
+

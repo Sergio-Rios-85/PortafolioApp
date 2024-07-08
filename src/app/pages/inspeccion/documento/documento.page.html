@@ -18,14 +18,13 @@
   <ion-item>
     <ion-label position="stacked"></ion-label>
     <ion-input [(ngModel)]="searchPatente" placeholder="Ingrese la patente"></ion-input>
+    <ion-text color="danger" *ngIf="errorPatente">{{ errorMessage }}</ion-text>
   </ion-item>
   <ion-button expand="block" (click)="buscarInspecciones()">Buscar</ion-button>
 
   <ion-list>
     <ion-item *ngFor="let inspeccion of inspecciones" (click)="onInspeccionClick(inspeccion)" [ngClass]="{'selected': inspeccion === inspeccionSeleccionada}">
       <ion-label>
-    
-
         <h2>OI: {{ inspeccion.ID_OI }}</h2>
         <p>Fecha: {{ inspeccion.FECHA.split('T')[0] }}</p>
         <p>Hora: {{ inspeccion.HORA }}</p>

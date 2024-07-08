@@ -21,6 +21,8 @@ export class VehiculoPage implements OnInit {
   modelos: any[] = [];
   colores: any[] = [];
   anios: any[] = [];
+  errorPatente: boolean = false;
+  errorMessage: string = 'Formato de patente incorrecto. Por favor, ingrese una patente válida.';
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -51,6 +53,12 @@ export class VehiculoPage implements OnInit {
     });
   }
 
+  validarPatente(patente: string): boolean {
+    // Aquí puedes definir la lógica de validación de la patente
+    const regex = /^[A-Z]{4}\d{2}$/;
+    return regex.test(patente);
+  }
+
   guardarVehiculo() {
     // Validaciones
     if (!this.PATENTE || !this.MOTOR || !this.CHASIS || this.KILOMETRAJE == null || this.ID_MARCA == null || this.ID_MODELO == null || this.ID_COLOR == null || this.ID_ANIO == null) {
@@ -61,6 +69,12 @@ export class VehiculoPage implements OnInit {
       alert('El kilometraje debe ser un valor positivo.');
       return;
     }
+    if (!this.validarPatente(this.PATENTE)) {
+      this.errorPatente = true;
+      return;
+    }
+
+    this.errorPatente = false;
 
     const vehiculo = {
       PATENTE: this.PATENTE,

@@ -23,6 +23,7 @@ export class RegistroPage implements OnInit {
   emailInvalid: boolean = false;
   telefonoFijoError: boolean = false;
   celularClienteError: boolean = false;
+  rutInvalido: boolean = false;
 
   constructor(private http: HttpClient, private router: Router, private alertController: AlertController) { }
 
@@ -77,7 +78,7 @@ export class RegistroPage implements OnInit {
   }
 
   validarDatos(): boolean {
-    return !this.telefonoFijoError && !this.celularClienteError;
+    return !this.telefonoFijoError && !this.celularClienteError && !this.rutInvalido;
   }
 
   validarTelefonoFijo() {
@@ -88,6 +89,11 @@ export class RegistroPage implements OnInit {
   validarCelularCliente() {
     const regexNumeros = /^[0-9]+$/;
     this.celularClienteError = !regexNumeros.test(this.CELULAR_CLIENTE);
+  }
+
+  validarRUT() {
+    const regexRUT = /^[0-9]{7,8}-[0-9kK]$/;
+    this.rutInvalido = !regexRUT.test(this.RUT_CLIENTE);
   }
 
   logout() {

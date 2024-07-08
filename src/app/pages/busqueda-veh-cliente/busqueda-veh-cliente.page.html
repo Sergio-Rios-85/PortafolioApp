@@ -20,7 +20,8 @@
     <ion-label position="floating">Buscar por Patente</ion-label>
     <ion-input [(ngModel)]="PATENTE"></ion-input>
   </ion-item>
-  
+  <ion-text color="danger" *ngIf="errorPatente">{{ errorMessage }}</ion-text>
+
   <ion-button expand="full" (click)="buscarVehiculos()">Buscar</ion-button>
   
   <ion-list>      
@@ -50,6 +51,12 @@
         <ion-item>
           Año: {{vehiculo.VEH_ANIO}}
         </ion-item>
+        <ion-item *ngIf="vehiculo.RESULTADO_INSPECCION; else noInspeccion">
+          <strong>Resultado de Inspección: </strong> {{ vehiculo.RESULTADO_INSPECCION }}
+        </ion-item>
+        <ng-template #noInspeccion>
+          <ion-item><strong>Inspección:</strong> No tiene inspección.</ion-item>
+        </ng-template>
       </ion-list>
     </ion-item>
   </ion-list>
